@@ -31,3 +31,5 @@ script:
   #- /bin/bash .travis/build.sh --uri collection/container --cli globus Singularity
   #- /bin/bash .travis/build.sh --uri collection/container --cli registry Singularity
 
+notifications:
+  email: false

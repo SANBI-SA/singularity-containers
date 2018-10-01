@@ -29,6 +29,7 @@ echo "sregistry Version:"
 cd /tmp && \
     git clone https://github.com/singularityware/singularity.git && \
     cd singularity && \
+    git checkout release-2.6 && \
     ./autogen.sh && \
     ./configure --prefix=/usr/local && \
     make && sudo make install
