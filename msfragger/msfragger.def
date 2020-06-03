@@ -1,0 +1,18 @@
+Bootstrap: docker
+From: ubuntu:18.04
+
+%post
+    apt update
+    export DEBIAN_FRONTEND=noninteractive
+    ln -sf /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
+    apt install -y openjdk-8-jre-headless unzip mono-runtime
+    dpkg-reconfigure --frontend noninteractive tzdata
+    cd /opt && unzip MSFragger-2.4.zip
+    ln -s /opt/MSFragger-2.4/ /opt/msfragger
+    ln -s /opt/MSFragger-2.4/MSFragger-2.4.jar /opt/msfragger/msfragger.jar
+    chmod a+x /usr/local/bin/msfragger
+
+%files
+    MSFragger-2.4.zip /opt/
+    msfragger /usr/local/bin
+
